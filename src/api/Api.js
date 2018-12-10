@@ -13,7 +13,7 @@ const STATIONS_HISTORY_MINUTES = 30;
   const cleanedLocation = location.replace(/\s/g, "").split(",");
   const queryLocation = `${cleanedLocation[0]}`;
   return axios({
-    url: `http://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::forecast::hirlam::surface::point::simple&place=${queryLocation}`,
+    url: `https://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::forecast::hirlam::surface::point::simple&place=${queryLocation}`,
     method: "GET",
     responseType: "text"
   }).then(apiRequest => {
@@ -48,7 +48,7 @@ export function getCurrentWeather(fmisid) {
   const starttime = new Date();
   starttime.setMinutes(starttime.getMinutes() - CURRENTWEATHER_HISTORY_MINUTES);
   return axios({
-    url: `http://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::observations::weather::simple&fmisid=${fmisid}&starttime=${starttime.toISOString()}`,
+    url: `https://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::observations::weather::simple&fmisid=${fmisid}&starttime=${starttime.toISOString()}`,
     method: "GET",
     responseType: "text"
   }).then(apiRequest => {
@@ -83,7 +83,7 @@ export function getCurrentWeather(fmisid) {
   const starttime = new Date();
   starttime.setMinutes(starttime.getMinutes() - STATIONS_HISTORY_MINUTES);
   return axios({
-    url: `http://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::ef::stations&starttime=${starttime.toISOString()}`,
+    url: `https://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::ef::stations&starttime=${starttime.toISOString()}`,
     method: "GET",
     responseType: "text"
   }).then(apiRequest => {
@@ -145,7 +145,7 @@ function getStationsDetails(fmisid) {
   const starttime = new Date();
   starttime.setMinutes(starttime.getMinutes() - STATIONS_HISTORY_MINUTES);
   return axios({
-    url: `http://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::ef::stations&fmisid=${fmisid}&starttime=${starttime.toISOString()}`,
+    url: `https://data.fmi.fi/fmi-apikey/${FMI_API_KEY}/wfs?request=getFeature&storedquery_id=fmi::ef::stations&fmisid=${fmisid}&starttime=${starttime.toISOString()}`,
     method: "GET",
     responseType: "text"
   }).then(apiRequest => {
