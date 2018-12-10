@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Header from "./components/Header";
+import Station from "./components/Station";
+import { BrowserRouter, Route } from "react-router-dom";
+import Fevourite from "./components/Fevourite";
+import { Provider } from "react-redux";
+import store from "./store";
 import Search from "./components/Search";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Search />
-      </div>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="App">
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/fevourite" component={Fevourite} />
+            <Route exact path="/station/:id" component={Station} />
+          </div>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }

@@ -9,7 +9,7 @@ const STATIONS_HISTORY_MINUTES = 30;
 // fmi::observations::weather::cities::simple
 // fmi::forecast::hirlam::surface::point::simple
 
-export function getForcast(location) {
+ function getForcast(location) {
   const cleanedLocation = location.replace(/\s/g, "").split(",");
   const queryLocation = `${cleanedLocation[0]}`;
   return axios({
@@ -141,7 +141,7 @@ export function getCurrentWeather(fmisid) {
   });
 }
 
-export function getStationsDetails(fmisid) {
+function getStationsDetails(fmisid) {
   const starttime = new Date();
   starttime.setMinutes(starttime.getMinutes() - STATIONS_HISTORY_MINUTES);
   return axios({
@@ -176,5 +176,8 @@ export function getStationsDetails(fmisid) {
 
 
 export default {
-  getStations
+  getStations,
+  getForcast,
+  getCurrentWeather,
+  getStationsDetails
 };
