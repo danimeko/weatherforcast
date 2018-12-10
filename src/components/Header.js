@@ -6,7 +6,7 @@ class Header extends Component {
     return (
       <div>
         <nav className="navbar navbar-light bg-light">
-          <Link className="navbar-brand" to="/Search">
+          <Link className="navbar-brand" to="/">
             Finnish Weather Forcast
           </Link>
           <ul className="navbar-nav">
@@ -17,7 +17,7 @@ class Header extends Component {
             </li>
           </ul>
         </nav>
-        <br/>
+        <br />
       </div>
     );
   }
