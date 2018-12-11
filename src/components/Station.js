@@ -11,9 +11,9 @@ import { connect } from "react-redux";
 
 class Station extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.addToFevoriteClicked = this.addToFevoriteClicked.bind(this)
+    this.addToFevoriteClicked = this.addToFevoriteClicked.bind(this);
   }
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -24,8 +24,7 @@ class Station extends Component {
   }
 
   addToFevoriteClicked() {
-    const id = this.props.match.params.id;
-    this.props.addtofevorite(this.props.city)
+    this.props.addtofevorite(this.props.city);
   }
 
   renderCurrentWeather(currentWeather, city) {
@@ -50,6 +49,7 @@ class Station extends Component {
               <br />
               <span>@{currentWeather[reading].time.slice(11, 16)}</span>
               <div>{Math.round(currentWeather[reading].t2m)}</div>
+              <div>{}</div>
             </li>
           ))}
         </ul>
@@ -58,8 +58,7 @@ class Station extends Component {
   }
 
   renderForcastWeather(forcast) {
-    return (
-      <div className="container">
+    return <div className="container">
         <ul className="list-inline">
           <h3>Weather forcast for the next hours.</h3>
           {Object.keys(forcast).map(reading => (
@@ -73,17 +72,19 @@ class Station extends Component {
               <div>
                 <span>{Math.round(forcast[reading].Humidity)}</span>
               </div>
+              <div>
+              <span><img src={"../symbols/"+ forcast[reading].WeatherSymbol3 + ".svg" } alt="forcastimage" /></span>
+              </div>
             </li>
           ))}
         </ul>
-      </div>
-    );
+      </div>;
   }
 
   render() {
     const { loading, currentWeather, error, forcast, city } = this.props;
 
-    console.log(city);
+    console.log(forcast);
 
     if (loading) {
       return <div>Loading...</div>;
