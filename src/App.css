@@ -6,8 +6,6 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-  
-
 .react-autosuggest__container {
   position: relative;
 }
@@ -67,7 +65,7 @@ body {
 }
 
 .react-autosuggest__suggestion--focused {
-  background-color: #0C7EAF;
+  background-color: #0c7eaf;
   color: #fff;
 }
 
@@ -76,7 +74,6 @@ body {
   align-items: center;
   background-repeat: no-repeat;
 }
-
 
 .name {
   margin-left: 68px;
@@ -92,19 +89,24 @@ body {
   color: #120000;
 }
 
-.list-inline-item{
+.list-inline-item {
   margin-top: 5px;
-  width: 10rem;
-  height: 8rem;
-  border:3px dotted #b1bdbf;
+  width: 15rem;
+  height: 10rem;
+  border: 3px dotted #b1bdbf;
 }
 
-.fevoritelist{
+.fevoritelist {
   margin-top: 5px;
   width: 65rem;
   height: 5rem;
   border: 1px solid #aaa;
-   font-family: Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 300;
   font-size: 16px;
+}
+
+.2forcastimg {
+  width: 10px;
+  height: 10px;
 }
