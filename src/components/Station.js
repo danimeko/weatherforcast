@@ -12,7 +12,9 @@ import { connect } from "react-redux";
 class Station extends Component {
   constructor(props) {
     super(props);
-
+    this.state ={
+      addedToFevorite : false
+    }
     this.addToFevoriteClicked = this.addToFevoriteClicked.bind(this);
   }
   componentDidMount() {
@@ -25,69 +27,34 @@ class Station extends Component {
 
   addToFevoriteClicked() {
     this.props.addtofevorite(this.props.city);
+    let fevArray = [
+      {
+        id: this.props.city.fmisid,
+        name: this.props.city.name
+      }
+    ];
+    localStorage.setItem(this.props.city.fmisid, JSON.stringify(fevArray));
+    this.setState({
+      addedToFevorite: true
+    })
   }
 
   renderCurrentWeather(currentWeather, city) {
-    let x = {
-      time: "",
-      temprature: ""
-    };
-
-    x = Object.keys(currentWeather).map(reading => ({
-      time: currentWeather[reading].time.slice(11, 16),
-      temprature: Math.round(currentWeather[reading].t2m)
-    }));
-
-    let arr = Array.from(Object.keys(x), k => x[k]);
-    let y = arr[arr.length - 1];
-
-      console.log(y.time);
-    
-
-    return (
-      <div className="container">
-        <div className="">
-          <h3 className="float-center">Current weather in </h3>
-          <h5>{city.name}</h5>
-          <br />
-          <span>
-            {Object.keys(x).map(reading => (
-              <span>@{x[reading].time}</span>
-            ))}
-          </span>
-          <input
-            type="button"
-            value="Add to fevorite"
-            onClick={this.addToFevoriteClicked}
-          />
-        </div>
-      </div>
+    let x = [];
+    x.push(
+      Object.keys(currentWeather).map(reading =>
+        Math.round(currentWeather[reading].t2m)
+      )
     );
-    // <div className="container">
-    //   <ul className="list-inline">
-    //     <div className="">
-    //       <h3 className="float-center">Current weather in </h3>
-    //       <div>
-    //         <h4>{city.name}</h4>
-    //         <br />
-    //         <input
-    //           type="button"
-    //           value="Add to fevorite"
-    //           onClick={this.addToFevoriteClicked}
-    //         />
-    //       </div>
-    //     </div>
-    //     {Object.keys(currentWeather).map(reading => (
-    //       <li key={reading} className="list-inline-item">
-    //         <span>{currentWeather[reading].time.slice(0, 10)}</span>
-    //         <br />
-    //         <span>@{currentWeather[reading].time.slice(11, 16)}</span>
-    //         <div>{Math.round(currentWeather[reading].t2m)}</div>
-    //         <div>{}</div>
-    //       </li>
-    //     ))}
-    //   </ul>
-    // </div>
+    return <div className="container weatherDisplay ">
+        <div className=" float-center">
+          <h4 className="">Current weather in </h4>
+          <h5>{city.name}</h5>
+          <h3>{JSON.stringify(x[0][0])}</h3>
+          <input type="button" value="Add to fevorite" disabled={this.state.addedToFevorite} onClick={this.addToFevoriteClicked} />
+        </div>
+      </div>;
+    
   }
 
   renderForcastWeather(forcast) {

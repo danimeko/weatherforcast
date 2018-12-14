@@ -83,7 +83,6 @@ class Search extends Component {
       return <div>Loading...</div>;
     }
 
-    console.log(this.props);
     return (
       <div>
         <Header />

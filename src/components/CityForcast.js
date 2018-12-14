@@ -4,7 +4,6 @@ import Header from "./Header";
 class CityForcast extends Component {
   render() {
     const { weather, city } = this.props;
-    console.log(weather);
     return (
       <Fragment>
         <Header />

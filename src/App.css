@@ -105,8 +105,14 @@ body {
   font-weight: 300;
   font-size: 16px;
 }
+.weatherDisplay {
+  margin-top: 5px;
+  width: 15rem;
+  height: 10rem;
+  border: 3px dotted #b1bdbf;
+}
 
-.2forcastimg {
+.forcastimg {
   width: 10px;
   height: 10px;
 }
