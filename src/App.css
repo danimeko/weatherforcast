@@ -1,28 +1,29 @@
 .App {
   text-align: center;
 }
-
 body {
   font-family: Helvetica, sans-serif;
+  font-weight: 300;
 }
 
 .react-autosuggest__container {
-  position: relative;
+  width: 50%;
+  margin: auto;
 }
 
 .react-autosuggest__input {
-  width: 240px;
-  height: 30px;
+  width: 50%;
+  height: 50px;
   padding: 10px 20px;
-  font-family: Helvetica, sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 24px;
   border: 1px solid #aaa;
   border-radius: 4px;
 }
 
 .react-autosuggest__input:focus {
   outline: none;
+  border: 2px solid green;
 }
 
 .react-autosuggest__container--open .react-autosuggest__input {
@@ -35,15 +36,15 @@ body {
 }
 
 .react-autosuggest__container--open .react-autosuggest__suggestions-container {
+
   display: block;
-  position: absolute;
-  top: 51px;
-  width: 280px;
+  position: relative;
+  top: 3px;
+  width: 50%;
+  margin: auto;
   border: 1px solid #aaa;
   background-color: #fff;
-  font-family: Helvetica, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   z-index: 2;
@@ -97,12 +98,12 @@ body {
 }
 
 .fevoritelist {
-  margin-top: 5px;
-  width: 65rem;
+  
+  margin:auto;
+  width: 75%;
+  margin-bottom: 5px;
   height: 5rem;
   border: 1px solid #aaa;
-  font-family: Helvetica, sans-serif;
-  font-weight: 300;
   font-size: 16px;
 }
 .weatherDisplay {

@@ -19,35 +19,40 @@ class Fevourite extends Component {
     this.setState({ fevorites: fev });
   }
 
+
+
   render() {
     let { fevorites } = this.state;
+
+
     return (
       <div>
         <Header/>
-      <div>
-        <ul>
-          {fevorites.map(fev => (
-            <li key={fev.id}>
-              <div className="fevoritelist">
-                {fev.id}
-                {fev.name}
-                <button
-                  type="button"
-                  onClick={() => {
-                    let x = Object.keys(fev).map(key => ({
-                       id : fev[key]
-                     }))
-                    localStorage.removeItem(x[0].id);
-                    this.feacthLocalStorage();
-                  }}
-                >
-                  Remove Me!
+        {(fevorites.length === 0) ? <div>You haven't added fevorites city yet!</div> :
+          <div>
+            <ul className="list-inline">
+            {fevorites.map(fev => (
+              <li key={fev.id}>
+                <div className="fevoritelist">
+                  {fev.id}
+                  {fev.name}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      let x = Object.keys(fev).map(key => ({
+                        id: fev[key]
+                      }))
+                      localStorage.removeItem(x[0].id);
+                      this.feacthLocalStorage();
+                    }}
+                  >
+                    Remove Me!
                 </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-        </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>}
       </div>
     );
   }

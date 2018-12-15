@@ -12,14 +12,14 @@ import { connect } from "react-redux";
 class Station extends Component {
   constructor(props) {
     super(props);
-    this.state ={
-      addedToFevorite : false
-    }
+    this.state = {
+      addedToFevorite: false,
+      fevButtonValue: "Add to fevorite"
+    };
     this.addToFevoriteClicked = this.addToFevoriteClicked.bind(this);
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-
     this.props.feachCity(id);
     this.props.feachCurrentWeather(id);
     this.props.feachForcast(id);
@@ -35,8 +35,9 @@ class Station extends Component {
     ];
     localStorage.setItem(this.props.city.fmisid, JSON.stringify(fevArray));
     this.setState({
-      addedToFevorite: true
-    })
+      addedToFevorite: true,
+      fevButtonValue: "Added"
+    });
   }
 
   renderCurrentWeather(currentWeather, city) {
@@ -46,15 +47,21 @@ class Station extends Component {
         Math.round(currentWeather[reading].t2m)
       )
     );
-    return <div className="container weatherDisplay ">
+    return (
+      <div className="container weatherDisplay ">
         <div className=" float-center">
           <h4 className="">Current weather in </h4>
           <h5>{city.name}</h5>
           <h3>{JSON.stringify(x[0][0])}</h3>
-          <input type="button" value="Add to fevorite" disabled={this.state.addedToFevorite} onClick={this.addToFevoriteClicked} />
+          <input
+            type="button"
+            value={this.state.fevButtonValue}
+            disabled={this.state.addedToFevorite}
+            onClick={this.addToFevoriteClicked}
+          />
         </div>
-      </div>;
-    
+      </div>
+    );
   }
 
   renderForcastWeather(forcast) {
