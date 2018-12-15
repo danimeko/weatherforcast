@@ -5,7 +5,6 @@ import Header from "./Header";
 import { connect } from "react-redux";
 import { feachStations } from "../actions/searchActions";
 
-
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -58,15 +57,14 @@ class Search extends Component {
   };
 
   onSuggestionSelected = (event, suggestion) => {
-    
     const id = suggestion.suggestion.fmisid;
-   
-   this.props.history.push(`station/${id}`);
+
+    this.props.history.push(`station/${id}`);
   };
 
   render() {
     const { value, suggestions } = this.state;
-    
+
     const inputProps = {
       placeholder: "search city name",
       value,
@@ -96,8 +94,6 @@ class Search extends Component {
           inputProps={inputProps}
           highlightFirstSuggestion={true}
         />
-      
-       
       </div>
     );
   }
