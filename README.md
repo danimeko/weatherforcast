@@ -1,6 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Finish cities Weather forcast app
 
-## Available Scripts
+### Youtube app demo 
+
+https://www.youtube.com/watch?v=2GSHysviX3g&feature=youtu.be 
+
+### Live app demo 
+
+https://finnishweatherforcast.herokuapp.com/
+
+### Runs the app in the development mode
 
 In the project directory, you can run:
 
@@ -9,36 +17,39 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+### App features 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [x] search for a forecast using a location (finnish city)
+- [x] search for the current weather using a location (finnish city)
+- [x] Locations for the search are loaded in a autocomplete field
+- [x] User can add a location as a favorite
+- [x] User can remove a favorite location
+- [x] User is able to see a list of their favorites and select one to display its weather / forecast.
+- [x] User favorites are stored to localstorage
+- [x] User is able to share a link that will automatically load the weather / forecast for specific location
 
-### `npm run build`
+### Technologies used 
+- [x] App uses [Create React App](https://github.com/facebook/create-react-app) booilerplate
+- [x] App uses redux 
+- [x] App uses react-router
+- [x] App uses bootstrap
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Time tracking 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* Researching on search Autocomplite field around 5hrs 
+* understanding what is returned from Api , immutable js around 8hrs 
+* feach all cities and store them in redux store for autocomplite around 3hrs
+* react , redux , react-routing around 8hrs 
+* add/remove from fevorite feature around 3hrs
+* styling 2hrs
+* deploying 1hr
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Thought on the assignemnt
 
-### `npm run eject`
+In this assignement immutablejs was new thing for me it took me time to understand what is returned from api.After
+spending some time on researching i found out about immutable.The other interesting feature is the autocomplite 
+i haven't done that before.What took me time is laying down the sturucture of the app ,how the data flow ,which one 
+should be done first.It was great assignment . thank you
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
