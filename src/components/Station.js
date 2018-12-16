@@ -18,6 +18,8 @@ class Station extends Component {
     };
     this.addToFevoriteClicked = this.addToFevoriteClicked.bind(this);
   }
+  //feach city info using passed id 
+  //feach current and forcast weather 
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.feachCity(id);
@@ -25,6 +27,8 @@ class Station extends Component {
     this.props.feachForcast(id);
   }
 
+  // handle when user click add to fevorite 
+  // it will add an object which contain city id and name as value and city id as key to localstorage   
   addToFevoriteClicked() {
     this.props.addtofevorite(this.props.city);
     let fevArray = [
@@ -40,6 +44,7 @@ class Station extends Component {
     });
   }
 
+  // render current weather 
   renderCurrentWeather(currentWeather, city) {
     let x = [];
     x.push(
@@ -63,7 +68,7 @@ class Station extends Component {
       </div>
     );
   }
-
+  // renders forcast weather 
   renderForcastWeather(forcast) {
     return (
       <div className="container">

@@ -15,9 +15,11 @@ class Search extends Component {
   }
 
   componentDidMount() {
+    // feach all cities and store them in the redux store
     this.props.feachStations();
   }
 
+  //this will take input city and return cities that have same name or part of the city name 
   getSuggestions(value) {
     const fliteredCities = this.props.cities;
     const inputValue = value.trim().toLowerCase();
@@ -56,6 +58,8 @@ class Search extends Component {
     });
   };
 
+  // when a user select a city from the suggestion 
+  // it will pass the city id and redirect to station component
   onSuggestionSelected = (event, suggestion) => {
     const id = suggestion.suggestion.fmisid;
 
