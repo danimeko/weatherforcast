@@ -1,12 +1,16 @@
-import api from "../api/Api"
+import api from "../api/Api";
 
-const selected_city = "SELECTED_CITY";
+import { selected_city } from "./types.js";
 
 export function feachCity(id) {
-    return dispach => {
-        return api.getStationsDetails(id)
-            .then(res => dispach(selectedCity(res.toJS())))
-    }
+  return dispach => {
+    return api
+      .getStationsDetails(id)
+      .then(res => dispach(selectedCity(res.toJS())));
+  };
 }
 
-export const selectedCity = selectedcity => ({ type: selected_city, payload: { city: selectedcity } }); 
+export const selectedCity = selectedcity => ({
+  type: selected_city,
+  payload: { city: selectedcity }
+});

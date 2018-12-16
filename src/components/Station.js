@@ -100,10 +100,26 @@ class Station extends Component {
     const { loading, currentWeather, error, forcast, city } = this.props;
 
     if (loading) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <Header />
+          <div>
+            <img
+              src={require("../components/symbols/loading.gif")}
+              alt="loading img"
+            />
+          </div>
+          ;
+        </div>
+      );
     }
     if (error) {
-      return <div>sorry ,There is some error </div>;
+      return (
+        <div>
+          <Header />
+          <div>Error! {error.message}</div>
+        </div>
+      );
     }
 
     return (

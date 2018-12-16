@@ -74,11 +74,27 @@ class Search extends Component {
     const { error, loading } = this.props;
 
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return (
+        <div>
+          <Header />
+          <div>Error! {error.message}</div>
+        </div>
+      );
     }
 
     if (loading) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <Header />
+          <div>
+            <img
+              src={require("../components/symbols/loading.gif")}
+              alt="loading img"
+            />
+          </div>
+          ;
+        </div>
+      );
     }
 
     return (
