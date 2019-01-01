@@ -12,7 +12,9 @@ body {
 }
 
 .react-autosuggest__input {
-  width: 50%;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
   height: 50px;
   padding: 10px 20px;
   font-weight: 300;
